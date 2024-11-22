@@ -3,12 +3,8 @@ import Photographer from '../models/Photographer.js'
 
 const api = new Api('../../data/photographers.json')
 
-async function fetchPhotographersData() {
-  return await api.get()
-}
-
 async function init() {
-  const { photographers } = await fetchPhotographersData()
+  const { photographers } = await api.get()
   displayData(photographers)
 }
 
