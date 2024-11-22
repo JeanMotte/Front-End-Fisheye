@@ -1,16 +1,9 @@
-async function fetchPhotographersData() {
-  try {
-    const response = await fetch('../../data/photographers.json')
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    const data = await response.json()
-    console.log(data)
+import Api from '../api/api_constructor.js'
 
-    return data
-  } catch (error) {
-    'Error fetching the JSON file:', error
-  }
+const api = new Api('../../data/photographers.json')
+
+async function fetchPhotographersData() {
+  return await api.get()
 }
 
 async function displayData(photographers) {
