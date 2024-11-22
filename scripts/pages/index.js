@@ -21,6 +21,7 @@ async function getPhotographers() {
       portrait: 'account.png',
     },
   ]
+
   // et bien retourner le tableau photographers seulement une fois récupéré
   return {
     photographers: [...photographers, ...photographers, ...photographers],

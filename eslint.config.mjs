@@ -1,5 +1,5 @@
-import globals from 'globals'; // Default import for CommonJS module
-import prettierPlugin from 'eslint-plugin-prettier'; // Prettier plugin
+import globals from 'globals' // Default import for CommonJS module
+import prettierPlugin from 'eslint-plugin-prettier' // Prettier plugin
 
 export default [
   {
@@ -24,7 +24,10 @@ export default [
           afterBlockComment: false,
           beforeLineComment: true, // Blank line before single-line comments (// ...)
           afterLineComment: false,
-          applyDefaultIgnorePatterns: false, // Ensure rule applies everywhere
+          allowObjectStart: true,
+          allowArrayStart: true,
+          allowBlockStart: true,
+          allowBlockEnd: true,
         },
       ],
 
@@ -35,13 +38,12 @@ export default [
         // Ensure a blank line after console.log
         { blankLine: 'always', prev: 'expression', next: '*' },
 
-        // Ensure a blank line before comments
-        { blankLine: 'always', prev: '*', next: 'block-like' },
-
-        // Ensure a blank line after function declarations and before comments
+        // Ensure a blank line after function declarations
         { blankLine: 'always', prev: 'function', next: '*' },
-        { blankLine: 'always', prev: '*', next: 'comment' },
+
+        // Ensure a blank line before return statements
+        { blankLine: 'always', prev: '*', next: 'return' },
       ],
     },
   },
-];
+]
