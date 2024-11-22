@@ -14,11 +14,17 @@ function photographerTemplate(data) {
     const location = document.createElement('p')
     location.textContent = `${city}, ${country}`
 
+    location.classList.add('location')
+
     const taglineDOM = document.createElement('p')
     taglineDOM.textContent = tagline
 
+    taglineDOM.classList.add('tagline')
+
     const priceDOM = document.createElement('p')
     priceDOM.textContent = `${price}€/jour`
+
+    priceDOM.classList.add('price')
 
     article.appendChild(img)
 
