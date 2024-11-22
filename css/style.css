@@ -30,6 +30,12 @@ h1 {
   margin-block: 100px;
 }
 
+.photographer_section a,
+.photographer_section p {
+  text-decoration: none;
+  text-align: center;
+}
+
 .photographer_section article {
   justify-self: center;
   display: flex;
@@ -54,6 +60,7 @@ h1 {
 
 .photographer_section article p {
   margin: 2px;
+  color: black;
 }
 
 .photographer_section article .location {
