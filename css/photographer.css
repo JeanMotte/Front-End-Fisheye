@@ -7,6 +7,14 @@
   margin-inline: 100px;
 }
 
+/* gallery */
+
+.media-indiv {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
 .filter {
   margin-block: 20px;
 }

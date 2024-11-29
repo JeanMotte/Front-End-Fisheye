@@ -2,6 +2,8 @@
 
 import Api from '../api/api_constructor.js'
 import Header from '../templates/header.js'
+import Media from '../models/Media.js'
+import MediaToDisplay from '../templates/mediaToDisplay.js'
 
 const api = new Api('../../data/photographers.json')
 const photographerId = new URLSearchParams(window.location.search).get('id')
@@ -16,9 +18,14 @@ async function init() {
   const photographerMedias = media.filter(
     (media) => media.photographerId === parseInt(photographerId)
   )
+
   displayHeader(photographerData)
 
-  // displayMedia(photographerData, photographerMedias)
+  const mediaToDisplay = new MediaToDisplay(
+    photographerData,
+    photographerMedias
+  )
+  mediaToDisplay.insertGallery()
 
   console.log(photographerData, photographerMedias)
 
@@ -29,10 +36,5 @@ function displayHeader(data) {
   const headerTemplate = new Header(data)
   headerTemplate.setHeader()
 }
-
-// function displayMedia(data, media) {
-//   const mediaTemplate = new Media(data, media)
-//   mediaTemplate.setMedias()
-// }
 
 init()
