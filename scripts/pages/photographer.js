@@ -16,9 +16,12 @@ async function init() {
   )
   console.log(photographerData, photographerMedias)
 
-  // return { photographerData, photographerMedias }
   const headerTemplate = new Header(photographerData)
   headerTemplate.setHeader()
+
+  console.log(photographerData, photographerMedias)
+
+  return { photographerData, photographerMedias }
 }
 
 init()
