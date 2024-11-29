@@ -34,22 +34,24 @@ export default class MediaToDisplay {
 
     return `
       <article class="gallery_card">
-        <a href="#" data-media="${media.id}" role="link" aria-label="View media large">
+        <a href="#" data-media="${media.id}" role="link" aria-label="View media large" class="card-link">
           <figure>${mediaContent}</figure>
-        </a>
-        <figcaption>
-          <h2>${media.title}</h2>
-          <div role="group" aria-label="Like button and number of likes">
-            <span class="nbLike">${media.likes}</span>
-            <button 
-              class="btn_like" 
-              type="button" 
-              aria-label="Like" 
-              data-id="${media.id}">
-              <span class="fas fa-heart" aria-hidden="true"></span>
-            </button>
-          </div>
-        </figcaption>
+          <figcaption>
+          <div role="group" aria-label="Like button and number of likes" class="title-and-likes">
+              <h2>${media.title}</h2>
+              <div class="likes">
+                <span class="nbLike">${media.likes}</span>
+                <button 
+                class="btn_like" 
+                type="button" 
+                aria-label="Like" 
+                data-id="${media.id}">
+                <span class="fas fa-heart" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </figcaption>
+          </a>
       </article>
     `
   }
