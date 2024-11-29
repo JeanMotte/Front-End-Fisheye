@@ -6,6 +6,8 @@ import Header from '../templates/header.js'
 const api = new Api('../../data/photographers.json')
 const photographerId = new URLSearchParams(window.location.search).get('id')
 
+// TODO: put the displayHeader and displayMedia inside array and do Promise.all
+
 async function init() {
   const { photographers, media } = await api.get()
   const photographerData = photographers.find(
@@ -14,18 +16,23 @@ async function init() {
   const photographerMedias = media.filter(
     (media) => media.photographerId === parseInt(photographerId)
   )
-  console.log(photographerData, photographerMedias)
+  displayHeader(photographerData)
 
-  const headerTemplate = new Header(photographerData)
-  headerTemplate.setHeader()
+  // displayMedia(photographerData, photographerMedias)
 
   console.log(photographerData, photographerMedias)
 
   return { photographerData, photographerMedias }
 }
 
+function displayHeader(data) {
+  const headerTemplate = new Header(data)
+  headerTemplate.setHeader()
+}
+
+// function displayMedia(data, media) {
+//   const mediaTemplate = new Media(data, media)
+//   mediaTemplate.setMedias()
+// }
+
 init()
-
-// custom select
-
-const customSelect = document.querySelector('.custom-select')
