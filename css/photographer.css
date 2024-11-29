@@ -10,6 +10,12 @@
 .filter {
   margin-block: 20px;
 }
+
+.filter-span {
+  margin-inline-end: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
 /* custom select */
 .custom-dropdown {
   position: relative;
