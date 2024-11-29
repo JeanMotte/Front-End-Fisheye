@@ -4,12 +4,85 @@
 
 #main-photographer {
   margin-block-end: 100px;
+  margin-inline: 100px;
 }
+
+.filter {
+  margin-block: 20px;
+}
+/* custom select */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.selected-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+
+  font-size: 20px;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 50px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ffffff;
+}
+
+.selected-item i {
+  margin-left: 10px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  padding: 11px;
+  height: 50px;
+  border: none;
+  background-color: #901c1c;
+  align-content: center;
+}
+
+.dropdown-list li:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.dropdown-list li:not(:last-child) {
+  border-bottom: 1px solid #ffffff;
+  width: 90%; /* Border takes only 90% width */
+  margin: 0 auto;
+}
+
+.dropdown-list li:hover {
+  background-color: #db8876;
+}
+/* --------------- */
 
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;

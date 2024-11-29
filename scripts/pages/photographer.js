@@ -22,3 +22,7 @@ async function init() {
 }
 
 init()
+
+// custom select
+
+const customSelect = document.querySelector('.custom-select')
