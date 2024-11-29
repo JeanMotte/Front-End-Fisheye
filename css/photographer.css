@@ -4,7 +4,6 @@
 
 #main-photographer {
   margin-block-end: 100px;
-  margin-inline: 100px;
 }
 
 /* gallery */
@@ -14,11 +13,27 @@
   padding: 0;
 }
 
+.media-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #901c1c;
+  margin-block: 10px;
+}
+
 .media-indiv {
   width: 350px;
   height: 300px;
   object-fit: cover;
   display: block;
+  border-radius: 5px;
+  transition:
+    box-shadow 0.5s ease,
+    transform 0.5s ease;
+}
+
+.gallery_card:hover .media-indiv {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.005);
 }
 
 .gallery_card figure {
@@ -31,12 +46,34 @@
   justify-content: space-between;
   align-items: center;
   width: 350px;
+  /* cursor: pointer; */
 }
 
 .likes {
   display: flex;
   right: 0;
   column-gap: 5px;
+}
+
+.likes-number {
+  font-size: 24px;
+  font-weight: 500;
+  color: #901c1c;
+}
+
+.btn-like {
+  margin-inline-start: 5px;
+  z-index: 30;
+  padding-inline: 0;
+  color: red;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-like:focus-visible:not(:hover) {
+  outline: 2px solid black;
 }
 
 .filter {
@@ -53,7 +90,6 @@
 section .gallery_card {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 
 .filter-span {

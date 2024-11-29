@@ -4,13 +4,14 @@ import Api from '../api/api_constructor.js'
 import Header from '../templates/header.js'
 import Media from '../models/Media.js'
 import MediaToDisplay from '../templates/mediaToDisplay.js'
+import { displayLikes } from '../utils/likes.js'
 
 const api = new Api('../../data/photographers.json')
 const photographerId = new URLSearchParams(window.location.search).get('id')
 
 // TODO: put the displayHeader and displayMedia inside array and do Promise.all
 
-async function init() {
+export async function init() {
   const { photographers, media } = await api.get()
   const photographerData = photographers.find(
     (photographer) => photographer.id === parseInt(photographerId)
@@ -26,6 +27,8 @@ async function init() {
     photographerMedias
   )
   mediaToDisplay.insertGallery()
+
+  // displayLikes()
 
   console.log(photographerData, photographerMedias)
 
