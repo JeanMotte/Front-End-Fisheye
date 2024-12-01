@@ -6,6 +6,36 @@
   margin-block-end: 100px;
 }
 
+.media-video {
+  border: 2px solid black;
+}
+
+/* tjm bottom */
+
+.tjm-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background-color: #db8876;
+  border-radius: 5px 5px 0 0;
+}
+.tjm-tags {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.total-like-number {
+  margin-inline-end: 5px;
+}
+
+.tjm-price {
+  margin-inline-start: 20px;
+}
+
+/* --------------------- */
 /* gallery */
 .card-link {
   text-decoration: none;

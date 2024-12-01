@@ -2,14 +2,11 @@
 
 import Api from '../api/api_constructor.js'
 import Header from '../templates/header.js'
-import Media from '../models/Media.js'
 import MediaToDisplay from '../templates/mediaToDisplay.js'
-import { displayLikes } from '../utils/likes.js'
+import { displayLikes, tjmTag } from '../utils/likes.js'
 
 const api = new Api('../../data/photographers.json')
 const photographerId = new URLSearchParams(window.location.search).get('id')
-
-// TODO: put the displayHeader and displayMedia inside array and do Promise.all
 
 export async function init() {
   const { photographers, media } = await api.get()
@@ -28,9 +25,9 @@ export async function init() {
   )
   mediaToDisplay.insertGallery()
 
-  // displayLikes()
+  displayLikes(photographerMedias)
 
-  console.log(photographerData, photographerMedias)
+  tjmTag(photographerData, photographerMedias)
 
   return { photographerData, photographerMedias }
 }

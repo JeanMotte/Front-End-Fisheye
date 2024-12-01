@@ -1,27 +1,53 @@
-import { init } from '../pages/photographer.js'
+export async function displayLikes(photographerMedias, photographerData) {
+  const likesBtns = document.querySelectorAll('.btn-like')
 
-export async function displayLikes() {
-  const medias = await init()
-  const likesBtn = document.querySelectorAll('.btn-like')
-  const likesNumber = document.querySelectorAll('.likes-number')
+  likesBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mediaId = parseInt(btn.dataset.id, 10)
 
-  const updateLikes = () => {
-    const totalLikes = medias.reduce((acc, media) => acc + media.likes, 0)
-    likesNumber.forEach((like) => (like.textContent = totalLikes))
-  }
-
-  likesBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const media = medias.find((media) => media.id === btn.dataset.id)
+      const media = photographerMedias.find((media) => media.id === mediaId) // Find corresponding media object
 
       if (media) {
-        media.likes++
+        const likesElement = btn.previousElementSibling
+        const isLiked = btn.classList.contains('liked')
 
-        const likesElement = btn.previousElementSibling // Find the likes display element
-        likesElement.textContent = `${media.likes}` // Update likes display
+        if (isLiked) {
+          media.likes--
 
-        updateLikes()
+          btn.classList.remove('liked')
+        } else {
+          media.likes++
+
+          btn.classList.add('liked')
+        }
+
+        // Update the likes count in the DOM
+        likesElement.textContent = media.likes
+
+        // Update the total likes in the DOM
+        tjmTag(photographerData, photographerMedias)
+      } else {
+        console.error(`Media with ID ${mediaId} not found.`)
       }
     })
   })
+}
+
+export async function tjmTag(photographerData, photographerMedias) {
+  // display photographer initial total likes
+  const totalLikes = photographerMedias.reduce(
+    (acc, media) => acc + media.likes,
+    0
+  )
+
+  // update photographer total likes in DOM
+  const totalLikesElement = document.querySelector('.total-like-number')
+  totalLikesElement
+    ? (totalLikesElement.textContent = totalLikes)
+    : (document.querySelector('.tjm-tag').innerHTML = `
+      <div class="tjm-wrapper">
+        <div class="tjm-tags"><span class="total-like-number">${totalLikes}</span><span class="fas fa-heart" aria-hidden="true"></span></div>
+        <div class="tjm-tags tjm-price"><span>${photographerData.price}€ / jour</span></div>
+      </div>
+    `)
 }

@@ -11,14 +11,14 @@ export default class MediaToDisplay {
     if (media.image)
       return `
         <img 
-          class="media-indiv" 
+          class="media-indiv media-photo" 
           src="${mediaBasePath}${media.image}" 
           alt="${media.alt}">
       `
     if (media.video)
       return `
         <video 
-          class="media-indiv" 
+          class="media-indiv media-video" 
           aria-label="${media.alt}">
           <source 
             src="${mediaBasePath}${media.video}" 
