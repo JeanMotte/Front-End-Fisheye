@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/modal.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
@@ -37,22 +38,28 @@
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
-    </main>
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        <form>
-          <div>
-            <label id="first">Prénom</label>
-            <input />
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
+      <div id="contact_modal">
+        <div class="modal">
+          <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()" />
+          </header>
+          <form>
+            <div>
+              <label id="first">Prénom</label>
+              <input />
+              <label id="last">Nom</label>
+              <input />
+              <label id="mail">Email</label>
+              <input />
+              <label id="message">Vore message</label>
+              <input />
+            </div>
+            <button class="contact_button">Envoyer</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
     <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/utils/modal.js"></script>
     <script src="/scripts/utils/filter.js"></script>
