@@ -60,6 +60,24 @@ export default class MediaToDisplay {
     return this.medias.map((media) => this.setGalleryCard(media)).join('')
   }
 
+  sortGallery(filter) {
+    switch (filter) {
+      case 'popularite':
+        this.medias.sort((a, b) => b.likes - a.likes)
+
+        break
+      case 'date':
+        this.medias.sort((a, b) => new Date(b.date) - new Date(a.date))
+
+        break
+      case 'titre':
+        this.medias.sort((a, b) => a.title.localeCompare(b.title))
+
+        break
+    }
+    this.insertGallery()
+  }
+
   insertGallery() {
     const profilePageContent = document.querySelector('.medias')
     const content = `

@@ -21,6 +21,12 @@ export async function init() {
     photographerData,
     photographerMedias
   )
+
+  // set default filter to popularite
+  mediaToDisplay.sortGallery('popularite')
+
+  window.setMediaToDisplay(mediaToDisplay)
+
   mediaToDisplay.insertGallery()
 
   displayLikes(photographerMedias)

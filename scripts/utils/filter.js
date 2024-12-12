@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdownList = dropdown.querySelector('.dropdown-list')
   const chevronIcon = selectedItem.querySelector('i')
 
+  let mediaToDisplay
+
+  // instance has to be a MediaToDisplay object
+  window.setMediaToDisplay = (instance) => {
+    mediaToDisplay = instance
+  }
+
   // Handle click on the selected item to toggle dropdown visibility
   selectedItem.addEventListener('click', () => {
     const isHidden = dropdownList.hasAttribute('hidden')
@@ -54,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedItem.style.borderBottomLeftRadius = '5px'
 
       selectedItem.style.borderBottomRightRadius = '5px'
+
+      if (mediaToDisplay) {
+        mediaToDisplay.sortGallery(newValue)
+      }
     }
   })
 
