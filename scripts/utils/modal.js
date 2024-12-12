@@ -9,6 +9,8 @@ function closeModal() {
 
 const toggleModal = (show) => {
   modal.style.display = show ? 'block' : 'none'
+
+  document.body.classList.toggle('no-scroll', show)
 }
 
 document.getElementById('contact_modal').style.display = 'none'

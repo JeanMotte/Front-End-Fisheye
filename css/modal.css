@@ -123,3 +123,7 @@ form input {
   font-size: 16px;
   color: #6b040e;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
