@@ -26,4 +26,11 @@ export default class Header {
 
     headerSpace.innerHTML = info
   }
+
+  setModalHeader() {
+    const modalHeader = document.getElementById('modal-photographer-name')
+    modalHeader.textContent = `
+      ${this.photographer.name}
+    `
+  }
 }

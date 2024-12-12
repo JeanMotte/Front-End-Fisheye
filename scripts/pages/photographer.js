@@ -33,6 +33,8 @@ export async function init() {
 function displayHeader(data) {
   const headerTemplate = new Header(data)
   headerTemplate.setHeader()
+
+  headerTemplate.setModalHeader()
 }
 
 init()
