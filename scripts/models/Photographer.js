@@ -21,6 +21,9 @@ export default class Photographer {
     const link = document.createElement('a')
     link.href = `./photographer.html?id=${this.id}`
 
+    const imgWrapper = document.createElement('div')
+    imgWrapper.classList.add('img-wrapper')
+
     const img = document.createElement('img')
     img.setAttribute('src', picture)
 
@@ -45,7 +48,9 @@ export default class Photographer {
     priceDOM.classList.add('price')
 
     // Append all elements to the link
-    link.appendChild(img)
+    link.appendChild(imgWrapper)
+
+    imgWrapper.appendChild(img)
 
     link.appendChild(h2)
 
