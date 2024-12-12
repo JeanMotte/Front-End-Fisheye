@@ -37,12 +37,10 @@
   margin: auto;
   animation-name: modalopen;
   animation-duration: 0.8s;
-  overflow: hidden;
   position: relative;
 }
 
 #contact_modal {
-  display: none;
   position: fixed;
   z-index: 100;
   left: 0;
@@ -51,7 +49,6 @@
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
-  /* padding-block-start: 100px; */
 }
 
 .modal header {
