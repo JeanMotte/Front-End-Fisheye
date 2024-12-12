@@ -16,6 +16,7 @@ header {
 
 #index-title {
   color: #901c1c;
+  font-weight: 300;
 }
 
 .logo {
@@ -47,6 +48,7 @@ header {
   color: #d3573c;
   font-size: 36px;
   margin-bottom: 0;
+  font-weight: 300;
 }
 
 .photographer_section article .img-wrapper {

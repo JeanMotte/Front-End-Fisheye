@@ -1,10 +1,9 @@
-import Api from '../api/api_constructor.js'
 import Photographer from '../models/Photographer.js'
-
-const api = new Api('../../data/photographers.json')
+import { getPhotographerData } from '../services/data_service.js'
 
 async function init() {
-  const { photographers } = await api.get()
+  const photographers = await getPhotographerData()
+
   displayData(photographers)
 }
 

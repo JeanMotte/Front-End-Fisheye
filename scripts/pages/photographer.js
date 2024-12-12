@@ -1,13 +1,13 @@
-import Api from '../api/api_constructor.js'
 import Header from '../templates/header.js'
 import MediaToDisplay from '../templates/mediaToDisplay.js'
 import { displayLikes, tjmTag } from '../utils/likes.js'
+import { getMediaData } from '../services/data_service.js'
 
-const api = new Api('../../data/photographers.json')
 const photographerId = new URLSearchParams(window.location.search).get('id')
 
 export async function init() {
-  const { photographers, media } = await api.get()
+  const { photographers, media } = await getMediaData()
+
   const photographerData = photographers.find(
     (photographer) => photographer.id === parseInt(photographerId)
   )
