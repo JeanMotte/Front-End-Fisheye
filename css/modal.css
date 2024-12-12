@@ -115,6 +115,7 @@ form input {
   padding-block-start: 10px;
   font-size: 20px;
   font-family: 'DM Sans', sans-serif;
+  margin-block-end: 5px;
 }
 
 /* alert messages */
