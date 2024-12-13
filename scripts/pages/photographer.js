@@ -2,6 +2,7 @@ import Header from '../templates/header.js'
 import MediaToDisplay from '../templates/mediaToDisplay.js'
 import { displayLikes, tjmTag } from '../utils/likes.js'
 import { getMediaData } from '../services/data_service.js'
+import { Lightbox } from '../models/Lightbox.js'
 
 const photographerId = new URLSearchParams(window.location.search).get('id')
 
@@ -32,6 +33,8 @@ export async function init() {
   displayLikes(photographerMedias)
 
   tjmTag(photographerData, photographerMedias)
+
+  Lightbox.init()
 
   return { photographerData, photographerMedias }
 }

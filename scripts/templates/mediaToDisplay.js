@@ -30,11 +30,12 @@ export default class MediaToDisplay {
   }
 
   setGalleryCard(media) {
+    const mediaBasePath = `/assets/images/${this.photographer.name}/`
     const mediaContent = this.setMediasType(media)
 
     return `
       <article class="gallery_card">
-        <a href="#" data-media="${media.id}" role="link" aria-label="View media large" class="card-link">
+        <a href="${mediaBasePath}${media.image}" data-media="${media.id}" role="link" aria-label="View media large" class="card-link">
         <figure>${mediaContent}</figure>
         </a>
         <figcaption>
