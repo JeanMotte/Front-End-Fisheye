@@ -1,6 +1,8 @@
+import { getMediaData } from '../services/data_service.js'
+
 export class Lightbox {
-  constructor(url) {
-    this.element = this.buildDom(url)
+  constructor(url, title) {
+    this.element = this.buildDom(url, title)
 
     document.body.appendChild(this.element)
 
@@ -17,7 +19,7 @@ export class Lightbox {
     this.element.remove()
   }
 
-  buildDom(url) {
+  buildDom(url, title) {
     const dom = document.createElement('div')
     dom.classList.add('lightbox')
 
@@ -33,21 +35,24 @@ export class Lightbox {
       </button>
       <div class="lightbox__container">
         <img class="lightbox__image" src="${url}" alt="Lightbox media preview" />
-        <div class="lightbox__caption">${url}</div>
+        <div class="lightbox__caption">${title || 'No title available'}</div>
       </div>
     `
 
     return dom
   }
 
-  static init() {
+  static init(mediaList) {
     const links = document
       .querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]')
       .forEach((link) => {
+        const media = mediaList.find((m) =>
+          link.href.includes(m.image || m.video)
+        )
         link.addEventListener('click', (event) => {
           event.preventDefault()
 
-          new Lightbox(link.href)
+          new Lightbox(link.href, media?.title)
         })
       })
   }

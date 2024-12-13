@@ -34,7 +34,7 @@ export async function init() {
 
   tjmTag(photographerData, photographerMedias)
 
-  Lightbox.init()
+  Lightbox.init(photographerMedias)
 
   return { photographerData, photographerMedias }
 }
