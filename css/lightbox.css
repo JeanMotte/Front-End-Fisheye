@@ -13,9 +13,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 75vw;
   height: 90vh;
   margin-inline: 150px;
+  margin-block-start: 40px;
 }
 
 .lightbox__caption {
@@ -25,7 +25,6 @@
 
 .lightbox img {
   width: 75vw;
-  height: 90vh;
   max-height: 100%;
   border-radius: 5px;
   object-fit: cover;

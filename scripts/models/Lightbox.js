@@ -35,7 +35,7 @@ export class Lightbox {
       </button>
       <div class="lightbox__container">
         <img class="lightbox__image" src="${url}" alt="Lightbox media preview" />
-        <div class="lightbox__caption">${title || 'No title available'}</div>
+        <figcaption class="lightbox__caption">${title || 'No title available'}</figcaption>
       </div>
     `
 
