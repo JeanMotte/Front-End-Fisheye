@@ -26,9 +26,19 @@ header {
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
-  margin-block: 100px;
+  gap: 50px;
+  margin-block: 50px;
+  /* row-gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-block: 100px; */
 }
+
+/* .photographer_section article {
+  flex: 1 0 33.33%;
+  box-sizing: border-box;
+} */
 
 .photographer_section a,
 .photographer_section p {

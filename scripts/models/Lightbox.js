@@ -1,5 +1,3 @@
-import { getMediaData } from '../services/data_service.js'
-
 export class Lightbox {
   constructor(url, title) {
     this.element = this.buildDom(url, title)
