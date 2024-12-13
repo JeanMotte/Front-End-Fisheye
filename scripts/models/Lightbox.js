@@ -33,7 +33,7 @@ export class Lightbox {
       </button>
       <div class="lightbox__container">
         <img class="lightbox__image" src="${url}" alt="Lightbox media preview" />
-        <div class="lightbox__caption">Test</div>
+        <div class="lightbox__caption">${url}</div>
       </div>
     `
 
