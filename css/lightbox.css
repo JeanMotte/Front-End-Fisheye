@@ -39,6 +39,7 @@
   right: 0;
   cursor: pointer;
   margin-inline-end: 100px;
+  margin-block-start: 8px;
 }
 
 .lightbox__next,
