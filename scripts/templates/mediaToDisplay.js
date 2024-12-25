@@ -8,14 +8,14 @@ export default class MediaToDisplay {
   setMediasType(media) {
     const mediaBasePath = `/assets/images/${this.photographer.name}/`
 
-    if (media.image)
+    if (media.image && typeof media.image === 'string')
       return `
         <img 
           class="media-indiv media-photo" 
           src="${mediaBasePath}${media.image}" 
           alt="${media.alt}">
       `
-    if (media.video)
+    if (media.video && typeof media.video === 'string')
       return `
         <video 
           class="media-indiv media-video" 
@@ -35,7 +35,7 @@ export default class MediaToDisplay {
 
     return `
       <article class="gallery_card">
-        <a href="${mediaBasePath}${media.image}" data-media="${media.id}" role="link" aria-label="View media large" class="card-link">
+        <a href="${mediaBasePath}${media.image || media.video}" data-media="${media.id}" role="link" aria-label="View media large" class="card-link">
         <figure>${mediaContent}</figure>
         </a>
         <figcaption>
@@ -58,7 +58,10 @@ export default class MediaToDisplay {
   }
 
   setFullGalery() {
-    return this.medias.map((media) => this.setGalleryCard(media)).join('')
+    return this.medias
+      .filter((media) => media.image || media.video)
+      .map((media) => this.setGalleryCard(media))
+      .join('')
   }
 
   sortGallery(filter) {

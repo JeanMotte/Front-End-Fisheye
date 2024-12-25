@@ -18,7 +18,6 @@
   align-items: center;
   height: 90vh;
   margin-inline: 150px;
-  /* margin-block-start: 40px; */
 }
 
 .lightbox__caption {
@@ -40,6 +39,7 @@
   cursor: pointer;
   margin-inline-end: 100px;
   margin-block-start: 8px;
+  z-index: 1000;
 }
 
 .lightbox__next,
