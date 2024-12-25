@@ -51,7 +51,7 @@ export class Lightbox {
         <i class="fa-solid fa-chevron-right"></i>
       </button>
       <div class="lightbox__container">
-        <video class="lightbox__video" controls alt="video of ${title}">
+        <video class="lightbox__image" controls alt="video of ${title}">
           <source src="${url}" type="video/mp4" />
         <figcaption class="lightbox__caption">${title || 'No title available'}</figcaption>
       </div>
