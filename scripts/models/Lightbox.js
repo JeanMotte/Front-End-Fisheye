@@ -1,10 +1,12 @@
 export class Lightbox {
-  constructor(url, title, currentIndex, mediaList) {
+  constructor(url, title, currentIndex, mediaList, photographerData) {
     this.element = this.buildDom(url, title)
 
     this.currentIndex = currentIndex
 
     this.mediaList = mediaList
+
+    this.photographerData = photographerData
 
     document.body.appendChild(this.element)
 
@@ -25,12 +27,41 @@ export class Lightbox {
       .addEventListener('click', () => this.showNext())
   }
 
+  updateMedia() {
+    const currentMedia = this.mediaList[this.currentIndex]
+    const mediaContainer = this.element.querySelector('.lightbox__container')
+
+    const photographerName = this.photographerData.name.replace(/\s+/g, '%20')
+    const mediaUrl = currentMedia.image
+      ? `assets/images/${photographerName}/${currentMedia.image}`
+      : `assets/images/${photographerName}/${currentMedia.video}`
+
+    if (currentMedia.image) {
+      mediaContainer.innerHTML = `
+        <img class="lightbox__image" src="${mediaUrl}" alt="Image of ${currentMedia.title}" />
+        <figcaption class="lightbox__caption">${currentMedia.title || 'No title available'}</figcaption>
+      `
+    } else if (currentMedia.video) {
+      mediaContainer.innerHTML = `
+        <video class="lightbox__image" controls>
+          <source src="${mediaUrl}" type="video/mp4" />
+        </video>
+        <figcaption class="lightbox__caption">${currentMedia.title || 'No title available'}</figcaption>
+      `
+    }
+  }
+
   showPrevious() {
-    this.currentIndex = this.currentIndex - 1
+    this.currentIndex =
+      (this.currentIndex - 1 + this.mediaList.length) % this.mediaList.length
+
+    this.updateMedia()
   }
 
   showNext() {
-    console.log('Next')
+    this.currentIndex = (this.currentIndex + 1) % this.mediaList.length
+
+    this.updateMedia()
   }
 
   close() {
@@ -81,7 +112,7 @@ export class Lightbox {
     return dom
   }
 
-  static init(mediaList) {
+  static init(mediaList, photographerData) {
     document
       .querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]')
       .forEach((link) => {
@@ -96,7 +127,13 @@ export class Lightbox {
           link.addEventListener('click', (event) => {
             event.preventDefault()
 
-            new Lightbox(link.href, media?.title || 'No title available')
+            new Lightbox(
+              link.href,
+              media?.title || 'No title available',
+              mediaList.indexOf(media),
+              mediaList,
+              photographerData
+            )
           })
         }
       })

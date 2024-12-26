@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         displayLikes(sortedMedia)
 
-        Lightbox.init(sortedMedia)
+        const photographerData = window.photographerData
+
+        Lightbox.init(sortedMedia, photographerData)
       }
     }
   })

@@ -6,12 +6,18 @@ import { Lightbox } from '../models/Lightbox.js'
 
 const photographerId = new URLSearchParams(window.location.search).get('id')
 
+window.setPhotographerData = (data) => {
+  window.photographerData = data
+}
+
 export async function init() {
   const { photographers, media } = await getMediaData()
 
   const photographerData = photographers.find(
     (photographer) => photographer.id === parseInt(photographerId)
   )
+
+  window.setPhotographerData(photographerData)
 
   const photographerMedias = media.filter(
     (media) => media.photographerId === parseInt(photographerId)
@@ -34,7 +40,7 @@ export async function init() {
 
   tjmTag(photographerData, photographerMedias)
 
-  Lightbox.init(photographerMedias)
+  Lightbox.init(photographerMedias, photographerData)
 
   return { photographerData, photographerMedias }
 }
