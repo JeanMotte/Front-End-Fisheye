@@ -98,5 +98,3 @@ export class Lightbox {
       })
   }
 }
-
-Lightbox.init()
