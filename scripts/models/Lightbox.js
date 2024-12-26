@@ -11,6 +11,18 @@ export class Lightbox {
     this.element
       .querySelector('.lightbox__close')
       .addEventListener('click', () => this.close())
+
+    this.element
+      .querySelector('.lightbox__previous')
+      .addEventListener('click', () => {
+        console.log('Previous')
+      })
+
+    this.element
+      .querySelector('.lightbox__next')
+      .addEventListener('click', () => {
+        console.log('Next')
+      })
   }
 
   close() {
