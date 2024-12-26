@@ -14,15 +14,19 @@ export class Lightbox {
 
     this.element
       .querySelector('.lightbox__previous')
-      .addEventListener('click', () => {
-        console.log('Previous')
-      })
+      .addEventListener('click', () => this.showPrevious())
 
     this.element
       .querySelector('.lightbox__next')
-      .addEventListener('click', () => {
-        console.log('Next')
-      })
+      .addEventListener('click', () => this.showNext())
+  }
+
+  showPrevious() {
+    console.log('Previous')
+  }
+
+  showNext() {
+    console.log('Next')
   }
 
   close() {
