@@ -1,6 +1,10 @@
 export class Lightbox {
-  constructor(url, title) {
+  constructor(url, title, currentIndex, mediaList) {
     this.element = this.buildDom(url, title)
+
+    this.currentIndex = currentIndex
+
+    this.mediaList = mediaList
 
     document.body.appendChild(this.element)
 
@@ -22,7 +26,7 @@ export class Lightbox {
   }
 
   showPrevious() {
-    console.log('Previous')
+    this.currentIndex = this.currentIndex - 1
   }
 
   showNext() {

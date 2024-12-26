@@ -12,10 +12,10 @@ export async function init() {
   const photographerData = photographers.find(
     (photographer) => photographer.id === parseInt(photographerId)
   )
+
   const photographerMedias = media.filter(
     (media) => media.photographerId === parseInt(photographerId)
   )
-
   displayHeader(photographerData)
 
   const mediaToDisplay = new MediaToDisplay(
@@ -24,11 +24,11 @@ export async function init() {
   )
 
   // set default filter to popularite
-  mediaToDisplay.sortGallery('popularite')
-
-  window.setMediaToDisplay(mediaToDisplay)
+  mediaToDisplay.sortGallery()
 
   mediaToDisplay.insertGallery()
+
+  window.setMediaToDisplay(mediaToDisplay)
 
   displayLikes(photographerMedias)
 

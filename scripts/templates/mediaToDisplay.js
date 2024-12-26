@@ -64,6 +64,13 @@ export default class MediaToDisplay {
       .join('')
   }
 
+  setFullGalery2(mediaList) {
+    return mediaList
+      .filter((media) => media.image || media.video)
+      .map((media) => this.setGalleryCard(media))
+      .join('')
+  }
+
   sortGallery(filter) {
     switch (filter) {
       case 'popularite':
@@ -78,20 +85,37 @@ export default class MediaToDisplay {
         this.medias.sort((a, b) => a.title.localeCompare(b.title))
 
         break
+
+      default:
+        this.medias.sort((a, b) => b.likes - a.likes)
     }
-    this.insertGallery()
+
+    return this.medias
   }
 
-  insertGallery() {
-    const profilePageContent = document.querySelector('.medias')
-    const content = `
+  insertGallery(mediaList) {
+    if (mediaList) {
+      const profilePageContent = document.querySelector('.medias')
+      const content = `
+      <section class="gallery">
+        ${this.setFullGalery2(mediaList)}
+      </section>
+    `
+
+      profilePageContent.innerHTML = content
+
+      return content
+    } else {
+      const profilePageContent = document.querySelector('.medias')
+      const content = `
       <section class="gallery">
         ${this.setFullGalery()}
       </section>
     `
 
-    profilePageContent.innerHTML = content
+      profilePageContent.innerHTML = content
 
-    return content
+      return content
+    }
   }
 }

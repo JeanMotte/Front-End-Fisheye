@@ -1,3 +1,6 @@
+import { Lightbox } from '../models/Lightbox.js'
+import { displayLikes } from './likes.js'
+
 document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.querySelector('.custom-dropdown')
   const selectedItem = dropdown.querySelector('.selected-item')
@@ -63,7 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedItem.style.borderBottomRightRadius = '5px'
 
       if (mediaToDisplay) {
-        mediaToDisplay.sortGallery(newValue)
+        const sortedMedia = mediaToDisplay.sortGallery(newValue)
+
+        mediaToDisplay.insertGallery(sortedMedia)
+
+        displayLikes(sortedMedia)
+
+        Lightbox.init(sortedMedia)
       }
     }
   })
