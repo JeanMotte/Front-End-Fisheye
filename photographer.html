@@ -36,16 +36,20 @@
       <div class="photograph-header"></div>
       <div class="filter">
         <span class="filter-span" tabindex="6">Trier par</span>
-        <div class="custom-dropdown" tabindex="7">
-          <div class="selected-item" data-value="popularite">
-            Popularité
+        <ul class="custom-dropdown">
+          <li class="selected-item" data-value="popularite">
+            <button>Popularité</button>
             <i class="fas fa-chevron-down"></i>
+          </li>
+          <div class="dropdown-list">
+            <li class="dropdown-option" data-value="date" hidden>
+              <button>Date</button>
+            </li>
+            <li class="dropdown-option" data-value="titre" hidden>
+              <button>Titre</button>
+            </li>
           </div>
-          <ul class="dropdown-list" hidden>
-            <li data-value="date">Date</li>
-            <li data-value="titre">Titre</li>
-          </ul>
-        </div>
+        </ul>
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
