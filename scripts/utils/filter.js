@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Move the current selected item to the options
       const oldValue = selectedItem.getAttribute('data-value')
-      const oldText = selectedItem.querySelector('button').textContent
+      const oldText = selectedItem.querySelector(
+        'button > span:first-child'
+      ).textContent
 
       option.setAttribute('data-value', oldValue)
 
@@ -42,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update the selected item
       selectedItem.setAttribute('data-value', newValue)
 
-      selectedItem.querySelector('button').textContent = newText
+      selectedItem.querySelector('button > span:first-child').textContent =
+        newText
 
       // Hide dropdown and reset chevron
       options.forEach((opt) => opt.setAttribute('hidden', true))
