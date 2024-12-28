@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Toggle dropdown visibility
   selectedItem.querySelector('button').addEventListener('click', () => {
     const isExpanded = options[0].hasAttribute('hidden')
+
     options.forEach((option) => option.toggleAttribute('hidden', !isExpanded))
 
     // Update chevron icon
     chevronIcon.classList.toggle('fa-chevron-down', !isExpanded)
 
     chevronIcon.classList.toggle('fa-chevron-up', isExpanded)
+
+    selectedItem.style.borderRadius = isExpanded ? '5px 5px 0 0' : '5px'
   })
 
   // Handle option selection
@@ -54,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       chevronIcon.classList.add('fa-chevron-down')
 
+      selectedItem.style.borderRadius = '5px'
+
       // Update media display
       if (mediaToDisplay) {
         const sortedMedia = mediaToDisplay.sortGallery(newValue)
@@ -75,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chevronIcon.classList.remove('fa-chevron-up')
 
       chevronIcon.classList.add('fa-chevron-down')
+
+      selectedItem.style.borderRadius = '5px'
     }
   })
 })

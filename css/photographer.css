@@ -149,6 +149,7 @@ section .gallery_card {
   border: none;
   background-color: #901c1c;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 li button {
@@ -157,13 +158,12 @@ li button {
   padding: 20px;
   text-align: left;
   border: none;
-  background-color: inherit;
+  background-color: transparent;
   cursor: pointer;
   height: 70px;
   font-size: 16px;
   color: white;
   font-weight: 600;
-  border-radius: 5px;
 }
 
 .dropdown-list {
@@ -173,6 +173,7 @@ li button {
   margin: 0;
   z-index: 10;
   overflow: hidden;
+  border-radius: 0 0 5px 5px;
 }
 
 .dropdown-option {
