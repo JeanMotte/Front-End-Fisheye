@@ -35,20 +35,20 @@ export default class MediaToDisplay {
 
     return `
       <article class="gallery_card">
-        <a href="${mediaBasePath}${media.image || media.video}" data-media="${media.id}" aria-label="${media.title}, closeup view" role="link" class="card-link" tabindex="8">
+        <a href="${mediaBasePath}${media.image || media.video}" data-media="${media.id}" aria-label="${media.title}, closeup view" role="link" class="card-link" tabindex="9">
         <figure>${mediaContent}</figure>
         </a>
         <figcaption>
           <div role="group" aria-label="Like button and number of likes" class="title-and-likes">
-              <p class="media-title" tabindex="8">${media.title}</p>
+              <p class="media-title" tabindex="9">${media.title}</p>
               <div class="likes">
-                <span class="likes-number" tabindex="8">${media.likes}</span>
+                <span class="likes-number" tabindex="9">${media.likes}</span>
                 <button 
                   class="btn-like" 
                   type="button" 
                   aria-label="Like" 
                   data-id="${media.id}"
-                  tabindex="8">
+                  tabindex="9">
                   <span class="fas fa-heart" aria-hidden="true"></span>
                 </button>
               </div>

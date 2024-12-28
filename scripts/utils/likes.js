@@ -45,7 +45,7 @@ export async function tjmTag(photographerData, photographerMedias) {
   totalLikesElement
     ? (totalLikesElement.textContent = totalLikes)
     : (document.querySelector('.tjm-tag').innerHTML = `
-      <div class="tjm-wrapper">
+      <div class="tjm-wrapper" tabindex="6">
         <div class="tjm-tags"><span class="total-like-number">${totalLikes}</span><span class="fas fa-heart" aria-hidden="true"></span></div>
         <div class="tjm-tags tjm-price"><span>${photographerData.price}€ / jour</span></div>
       </div>
