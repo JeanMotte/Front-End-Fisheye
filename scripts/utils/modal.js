@@ -1,24 +1,25 @@
 // modal display
+
 function displayModal() {
-  modal.style.display = 'block'
+  modal.showModal()
+
+  document.body.classList.add('no-scroll')
 }
 
 function closeModal() {
-  modal.style.display = 'none'
+  modal.close()
+
+  document.body.classList.remove('no-scroll')
 }
 
-const toggleModal = (show) => {
-  modal.style.display = show ? 'block' : 'none'
-
-  document.body.classList.toggle('no-scroll', show)
-}
-
-document.getElementById('contact_modal').style.display = 'none'
+document
+  .querySelector('.open-modal-button')
+  .addEventListener('click', displayModal)
 
 // form selectors
 
-const modal = document.getElementById('contact_modal')
-const form = document.querySelector('form')
+const modal = document.querySelector('dialog.modal') // Select the modal dialog element
+const form = modal.querySelector('form') // Select the form inside the modal
 const fields = [
   {
     element: document.getElementById('first'),
@@ -79,8 +80,8 @@ form.addEventListener('submit', (event) => {
 
     console.groupEnd()
 
-    toggleModal(false)
-
     form.reset()
+
+    closeModal()
   }
 })

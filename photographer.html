@@ -67,14 +67,15 @@
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
-      <div id="contact_modal">
-        <div class="modal">
+        <dialog class="modal">
           <header>
-            <h2 class="title-modal">
+            <h2 class="title-modal open-modal-button">
               Contactez-moi <br />
               <span id="modal-photographer-name"></span>
             </h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
+            <button role="button" onclick="closeModal()" class="button-close">
+              <img src="assets/icons/close.svg" />
+            </button>
           </header>
           <form>
             <div>
@@ -135,8 +136,7 @@
             </div>
             <button class="contact_button">Envoyer</button>
           </form>
-        </div>
-      </div>
+        </dialog>
     </main>
     <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/utils/modal.js"></script>
