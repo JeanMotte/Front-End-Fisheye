@@ -20,6 +20,11 @@ document
 
 const modal = document.querySelector('dialog.modal') // Select the modal dialog element
 const form = modal.querySelector('form') // Select the form inside the modal
+
+modal.addEventListener('close', () => {
+  document.body.classList.remove('no-scroll')
+})
+
 const fields = [
   {
     element: document.getElementById('first'),
