@@ -35,7 +35,7 @@ export default class MediaToDisplay {
 
     return `
       <article class="gallery_card">
-        <a href="${mediaBasePath}${media.image || media.video}" data-media="${media.id}" aria-label="${media.title}, closeup view" role="link" class="card-link" tabindex="9">
+        <a href="${mediaBasePath}${media.image || media.video}" data-media="${media.id}" role="link" class="card-link" tabindex="9">
         <figure>${mediaContent}</figure>
         </a>
         <figcaption>

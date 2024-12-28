@@ -84,6 +84,8 @@ export class Lightbox {
 
     dom.setAttribute('tabindex', '1')
 
+    dom.setAttribute('aria-label', 'Image closeup view')
+
     if (url.endsWith('.jpg')) {
       dom.innerHTML = `
       <button class="lightbox__previous" aria-label="Previous image">
