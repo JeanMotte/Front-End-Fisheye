@@ -67,76 +67,76 @@
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
-        <dialog class="modal">
-          <header>
-            <h2 class="title-modal open-modal-button">
-              Contactez-moi <br />
-              <span id="modal-photographer-name"></span>
-            </h2>
-            <button role="button" onclick="closeModal()" class="button-close">
-              <img src="assets/icons/close.svg" />
-            </button>
-          </header>
-          <form>
-            <div>
-              <label for="first">Prénom</label>
-              <input
-                class="text-control"
-                type="text"
-                id="first"
-                name="first"
-                minlength="2"
-                required
-                placeholder="Mary"
-              />
-              <span class="error-message" id="alert-first-name"
-                >Veuillez entrer 2 caractères ou plus sans caractère
-                spécial.</span
-              >
+      <dialog class="modal">
+        <header>
+          <h2 class="title-modal open-modal-button">
+            Contactez-moi <br />
+            <span id="modal-photographer-name"></span>
+          </h2>
+          <button role="button" onclick="closeModal()" class="button-close">
+            <img src="assets/icons/close.svg" />
+          </button>
+        </header>
+        <form>
+          <div>
+            <label for="first">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              minlength="2"
+              required
+              placeholder="Mary"
+            />
+            <span class="error-message" id="alert-first-name"
+              >Veuillez entrer 2 caractères ou plus sans caractère
+              spécial.</span
+            >
 
-              <label for="last">Nom</label>
-              <input
-                class="text-control"
-                type="text"
-                id="last"
-                name="last"
-                minlength="2"
-                required
-                placeholder="Poppins"
-              />
-              <span class="error-message" id="alert-last-name"
-                >Veuillez entrer 2 caractères ou plus sans caractère
-                spécial.</span
-              >
-              <label for="email">Email</label>
-              <input
-                class="text-control"
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="mary@gmail.com"
-              />
-              <span class="error-message" id="alert-email"
-                >Veuillez saisir un mail valide.</span
-              >
-              <label for="message">Votre message</label>
-              <textarea
-                class="text-control text-area"
-                type="text"
-                id="message"
-                name="message"
-                minlength="10"
-                required
-                placeholder="Je souhaite faire appel à vous pour..."
-              ></textarea>
-              <span class="error-message" id="alert-message"
-                >Le message doit comporter au moins 10 caractères</span
-              >
-            </div>
-            <button class="contact_button">Envoyer</button>
-          </form>
-        </dialog>
+            <label for="last">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              minlength="2"
+              required
+              placeholder="Poppins"
+            />
+            <span class="error-message" id="alert-last-name"
+              >Veuillez entrer 2 caractères ou plus sans caractère
+              spécial.</span
+            >
+            <label for="email">Email</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="mary@gmail.com"
+            />
+            <span class="error-message" id="alert-email"
+              >Veuillez saisir un mail valide.</span
+            >
+            <label for="message">Votre message</label>
+            <textarea
+              class="text-control text-area"
+              type="text"
+              id="message"
+              name="message"
+              minlength="10"
+              required
+              placeholder="Je souhaite faire appel à vous pour..."
+            ></textarea>
+            <span class="error-message" id="alert-message"
+              >Le message doit comporter au moins 10 caractères</span
+            >
+          </div>
+          <button class="contact_button">Envoyer</button>
+        </form>
+      </dialog>
     </main>
     <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/utils/modal.js"></script>

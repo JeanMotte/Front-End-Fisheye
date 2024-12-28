@@ -1,6 +1,8 @@
 // modal display
 
 function displayModal() {
+  modal.style.display = 'block'
+
   modal.showModal()
 
   document.body.classList.add('no-scroll')
@@ -8,6 +10,8 @@ function displayModal() {
 
 function closeModal() {
   modal.close()
+
+  modal.style.display = 'none'
 
   document.body.classList.remove('no-scroll')
 }
@@ -23,6 +27,8 @@ const form = modal.querySelector('form') // Select the form inside the modal
 
 modal.addEventListener('close', () => {
   document.body.classList.remove('no-scroll')
+
+  modal.style.display = 'none'
 })
 
 const fields = [
