@@ -4,94 +4,84 @@ import { displayLikes } from './likes.js'
 document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.querySelector('.custom-dropdown')
   const selectedItem = dropdown.querySelector('.selected-item')
-  const dropdownList = dropdown.querySelector('.dropdown-list')
+  const options = dropdown.querySelectorAll('.dropdown-option')
   const chevronIcon = selectedItem.querySelector('i')
 
   let mediaToDisplay
 
-  // instance has to be a MediaToDisplay object
+  // Set mediaToDisplay instance
   window.setMediaToDisplay = (instance) => {
     mediaToDisplay = instance
   }
 
-  // Handle click on the selected item to toggle dropdown visibility
-  selectedItem.addEventListener('click', () => {
-    const isHidden = dropdownList.hasAttribute('hidden')
-    dropdownList.toggleAttribute('hidden', !isHidden)
+  // Toggle dropdown visibility
+  selectedItem.querySelector('button').addEventListener('click', () => {
+    const isExpanded = options[0].hasAttribute('hidden')
 
-    // Toggle chevron icon
-    chevronIcon.classList.toggle('fa-chevron-down', !isHidden)
+    options.forEach((option) => option.toggleAttribute('hidden', !isExpanded))
 
-    chevronIcon.classList.toggle('fa-chevron-up', isHidden)
+    // Update chevron icon
+    chevronIcon.classList.toggle('fa-chevron-down', !isExpanded)
 
-    // Adjust border-radius based on dropdown state
-    if (isHidden) {
-      selectedItem.style.borderBottomLeftRadius = '0'
+    chevronIcon.classList.toggle('fa-chevron-up', isExpanded)
 
-      selectedItem.style.borderBottomRightRadius = '0'
-    } else {
-      selectedItem.style.borderBottomLeftRadius = '5px'
-
-      selectedItem.style.borderBottomRightRadius = '5px'
-    }
+    selectedItem.style.borderRadius = isExpanded ? '5px 5px 0 0' : '5px'
   })
 
-  // Handle selection from the dropdown list
-  dropdownList.addEventListener('click', (event) => {
-    const target = event.target
-    if (target.tagName.toLowerCase() === 'li') {
+  // Handle option selection
+  options.forEach((option) => {
+    option.querySelector('button').addEventListener('click', () => {
+      const newValue = option.getAttribute('data-value')
+      const newText = option.querySelector('button').textContent
+
+      // Move the current selected item to the options
+      const oldValue = selectedItem.getAttribute('data-value')
+      const oldText = selectedItem.querySelector(
+        'button > span:first-child'
+      ).textContent
+
+      option.setAttribute('data-value', oldValue)
+
+      option.querySelector('button').textContent = oldText
+
       // Update the selected item
-      const newValue = target.getAttribute('data-value')
-      const newText = target.textContent
-
-      // Swap selected item with clicked item in the dropdown list
-      target.setAttribute('data-value', selectedItem.getAttribute('data-value'))
-
-      target.textContent = selectedItem.textContent
-
       selectedItem.setAttribute('data-value', newValue)
 
-      selectedItem.childNodes[0].textContent = newText
+      selectedItem.querySelector('button > span:first-child').textContent =
+        newText
 
-      // Hide the dropdown list and reset chevron
-      dropdownList.setAttribute('hidden', true)
+      // Hide dropdown and reset chevron
+      options.forEach((opt) => opt.setAttribute('hidden', true))
 
       chevronIcon.classList.remove('fa-chevron-up')
 
       chevronIcon.classList.add('fa-chevron-down')
 
-      // Restore border-radius when dropdown closes
-      selectedItem.style.borderBottomLeftRadius = '5px'
+      selectedItem.style.borderRadius = '5px'
 
-      selectedItem.style.borderBottomRightRadius = '5px'
-
+      // Update media display
       if (mediaToDisplay) {
         const sortedMedia = mediaToDisplay.sortGallery(newValue)
-
         mediaToDisplay.insertGallery(sortedMedia)
 
         displayLikes(sortedMedia)
 
         const photographerData = window.photographerData
-
         Lightbox.init(sortedMedia, photographerData)
       }
-    }
+    })
   })
 
-  // Close the dropdown if clicked outside
+  // Close dropdown if clicked outside
   document.addEventListener('click', (event) => {
     if (!dropdown.contains(event.target)) {
-      dropdownList.setAttribute('hidden', true)
+      options.forEach((option) => option.setAttribute('hidden', true))
 
       chevronIcon.classList.remove('fa-chevron-up')
 
       chevronIcon.classList.add('fa-chevron-down')
 
-      // Restore border-radius when dropdown closes
-      selectedItem.style.borderBottomLeftRadius = '5px'
-
-      selectedItem.style.borderBottomRightRadius = '5px'
+      selectedItem.style.borderRadius = '5px'
     }
   })
 })
