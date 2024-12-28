@@ -11,6 +11,8 @@ export class Lightbox {
     document.body.appendChild(this.element)
 
     this.addEventListeners()
+
+    this.element.showModal()
   }
 
   addEventListeners() {
@@ -25,6 +27,12 @@ export class Lightbox {
     this.element
       .querySelector('.lightbox__next')
       .addEventListener('click', () => this.showNext())
+
+    this.element.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        this.close()
+      }
+    })
   }
 
   updateMedia() {
@@ -65,6 +73,8 @@ export class Lightbox {
   }
 
   close() {
+    this.element.close()
+
     this.element.remove()
   }
 
@@ -72,39 +82,40 @@ export class Lightbox {
     const dom = document.createElement('dialog')
     dom.classList.add('lightbox')
 
-    console.log(url)
+    dom.setAttribute('tabindex', '1')
 
     if (url.endsWith('.jpg')) {
       dom.innerHTML = `
-      <button class="lightbox__close" aria-label="Close lightbox">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
       <button class="lightbox__previous" aria-label="Previous image">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <button class="lightbox__next" aria-label="Next image">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
+      <button class="lightbox__close" aria-label="Close lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
       <div class="lightbox__container">
-        <img class="lightbox__image" src="${url}" alt="Image of ${title}" />
-        <figcaption class="lightbox__caption">${title || 'No title available'}</figcaption>
+        <img class="lightbox__image" src="${url}" alt="Image of ${title}" tabindex="2" />
+        <figcaption class="lightbox__caption" tabindex="3">${title || 'No title available'}</figcaption>
       </div>
     `
     } else if (url.endsWith('.mp4')) {
       dom.innerHTML = `
-      <button class="lightbox__close" aria-label="Close lightbox">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      
       <button class="lightbox__previous" aria-label="Previous image">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <button class="lightbox__next" aria-label="Next image">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
+      <button class="lightbox__close" aria-label="Close lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
       <div class="lightbox__container">
-        <video class="lightbox__image" controls alt="video of ${title}">
+        <video class="lightbox__image" controls alt="video of ${title}" tabindex="2">
           <source src="${url}" type="video/mp4" />
-        <figcaption class="lightbox__caption">${title || 'No title available'}</figcaption>
+        <figcaption class="lightbox__caption" tabindex="3">${title || 'No title available'}</figcaption>
       </div>
     `
     }
