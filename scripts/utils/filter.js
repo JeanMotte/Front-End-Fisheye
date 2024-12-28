@@ -4,6 +4,7 @@ import { displayLikes } from './likes.js'
 document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.querySelector('.custom-dropdown')
   const selectedItem = dropdown.querySelector('.selected-item')
+  const selectedButton = selectedItem.querySelector('button.selected-filter')
   const options = dropdown.querySelectorAll('.dropdown-option')
   const chevronIcon = selectedItem.querySelector('i')
 
@@ -14,10 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     mediaToDisplay = instance
   }
 
-  // Toggle dropdown visibility
-  selectedItem.querySelector('button').addEventListener('click', () => {
-    const isExpanded = options[0].hasAttribute('hidden')
+  // Update border-radius of the selected item based on dropdown state
+  const updateBorderRadius = (isExpanded) => {
+    selectedItem.style.borderRadius = isExpanded ? '5px' : '5px 5px 0 0'
+  }
 
+  // Function to toggle dropdown visibility and update styles
+  const toggleDropdown = () => {
+    const isExpanded = options[0].hasAttribute('hidden')
     options.forEach((option) => option.toggleAttribute('hidden', !isExpanded))
 
     // Update chevron icon
@@ -25,39 +30,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chevronIcon.classList.toggle('fa-chevron-up', isExpanded)
 
-    selectedItem.style.borderRadius = isExpanded ? '5px 5px 0 0' : '5px'
-  })
+    // Update border-radius and aria-expanded
+    updateBorderRadius(!isExpanded)
+
+    selectedButton.setAttribute('aria-expanded', isExpanded)
+  }
+
+  // Event listener for the selected item button
+  selectedButton.addEventListener('click', toggleDropdown)
 
   // Handle option selection
   options.forEach((option) => {
     option.querySelector('button').addEventListener('click', () => {
       const newValue = option.getAttribute('data-value')
-      const newText = option.querySelector('button').textContent
+      const newText = option.querySelector('span').textContent
 
       // Move the current selected item to the options
       const oldValue = selectedItem.getAttribute('data-value')
-      const oldText = selectedItem.querySelector(
-        'button > span:first-child'
-      ).textContent
+      const oldText = selectedItem.querySelector('span:first-child').textContent
 
       option.setAttribute('data-value', oldValue)
 
-      option.querySelector('button').textContent = oldText
+      option.querySelector('span').textContent = oldText
 
       // Update the selected item
       selectedItem.setAttribute('data-value', newValue)
 
-      selectedItem.querySelector('button > span:first-child').textContent =
-        newText
+      selectedItem.querySelector('span:first-child').textContent = newText
 
-      // Hide dropdown and reset chevron
+      // Hide dropdown and reset styles
       options.forEach((opt) => opt.setAttribute('hidden', true))
 
       chevronIcon.classList.remove('fa-chevron-up')
 
       chevronIcon.classList.add('fa-chevron-down')
 
-      selectedItem.style.borderRadius = '5px'
+      updateBorderRadius(true)
+
+      // Update aria-expanded
+      selectedButton.setAttribute('aria-expanded', false)
 
       // Update media display
       if (mediaToDisplay) {
@@ -81,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       chevronIcon.classList.add('fa-chevron-down')
 
-      selectedItem.style.borderRadius = '5px'
+      updateBorderRadius(true)
+
+      selectedButton.setAttribute('aria-expanded', false)
     }
   })
 })
