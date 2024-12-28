@@ -69,7 +69,7 @@ export class Lightbox {
   }
 
   buildDom(url, title) {
-    const dom = document.createElement('div')
+    const dom = document.createElement('dialog')
     dom.classList.add('lightbox')
 
     console.log(url)
