@@ -8,21 +8,18 @@ export async function displayLikes(photographerMedias, photographerData) {
       const media = photographerMedias.find((media) => media.id === mediaId) // Find corresponding media object
 
       if (media) {
-        const likesElement = btn.previousElementSibling
-        const isLiked = btn.classList.contains('liked')
-
-        if (isLiked) {
+        if (media.liked) {
           media.likes--
 
-          btn.classList.remove('liked')
+          media.liked = false
         } else {
           media.likes++
 
-          btn.classList.add('liked')
+          media.liked = true
         }
 
         // Update the likes count in the DOM
-        likesElement.textContent = media.likes
+        btn.previousElementSibling.textContent = media.likes
 
         // Update the total likes in the DOM
         tjmTag(photographerData, photographerMedias)
