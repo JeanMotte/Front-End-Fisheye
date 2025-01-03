@@ -50,6 +50,9 @@ function displayHeader(data) {
   headerTemplate.setHeader()
 
   headerTemplate.setModalHeader()
+
+  const selectedChoice = document.querySelector('.choices__inner')
+  selectedChoice.setAttribute('tabindex', '8')
 }
 
 init()

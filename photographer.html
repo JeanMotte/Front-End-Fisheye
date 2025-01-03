@@ -14,6 +14,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -35,69 +39,19 @@
     <main id="main-photographer">
       <div class="photograph-header"></div>
       <div class="filter">
-        <span class="filter-span" tabindex="7" role="input-label" id="order-by"
-          >Trier par</span
+        <label for="sort-select" class="filter-span" tabindex="7" id="order-by"
+          >Trier par</label
         >
-        <ul class="custom-dropdown">
-          <li
-            class="selected-item"
-            data-value="popularite"
-            role="option"
-            id="Popularite"
-          >
-            <button
-              class="selected-filter"
-              role="button"
-              type="button"
-              aria-haspopup="listbox"
-              aria-label="Order by Popularite"
-              aria-expanded="false"
-              tabindex="8"
-              aria-activedescendant="Popularite"
-              aria-labelledby="order-by"
-              aria-selected="true"
-            >
-              <span>Popularité</span>
-              <span><i class="fas fa-chevron-down"></i></span>
-            </button>
-          </li>
-          <div class="dropdown-list">
-            <li
-              class="dropdown-option"
-              data-value="date"
-              hidden
-              role="option"
-              id="Date"
-            >
-              <button
-                type="button"
-                aria-label="Order by Date"
-                tabindex="8"
-                aria-labelledby="order-by"
-                aria-selected="false"
-              >
-                <span>Date</span>
-              </button>
-            </li>
-            <li
-              class="dropdown-option"
-              data-value="titre"
-              hidden
-              role="option"
-              id="Titre"
-            >
-              <button
-                type="button"
-                aria-label="Order by Titre"
-                tabindex="8"
-                aria-labelledby="order-by"
-                aria-selected="false"
-              >
-                <span>Titre</span>
-              </button>
-            </li>
-          </div>
-        </ul>
+        <select
+          id="sort-select"
+          aria-labelledby="order-by"
+          class=""
+          tabindex="8"
+        >
+          <option value="popularite" class="">Popularité</option>
+          <option value="date" class="">Date</option>
+          <option value="titre" class="">Titre</option>
+        </select>
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
@@ -194,5 +148,6 @@
     <script src="./scripts/utils/filter.js" type="module"></script>
     <script src="./scripts/utils/likes.js" type="module"></script>
     <script src="./scripts/services/data_service.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   </body>
 </html>

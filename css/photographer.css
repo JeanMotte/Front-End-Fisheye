@@ -100,6 +100,8 @@
 
 .filter {
   margin-block: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .gallery {
@@ -126,16 +128,21 @@ section .gallery_card {
   padding-inline-start: 0;
 }
 
-.selected-filter {
+/* .selected-filter {
   display: flex;
   justify-content: space-between;
   align-items: center;
+} */
+
+select {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-.selected-item {
+#sort-select {
   border: 1px solid #ccc;
   background-color: #fff;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,6 +153,25 @@ section .gallery_card {
   background-color: #901c1c;
   cursor: pointer;
   border-radius: 5px;
+  width: 200px;
+  justify-content: center;
+}
+
+.selected-item {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  font-size: 20px;
+  color: white;
+  border: none;
+  background-color: #901c1c;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 200px;
+  justify-content: center;
 }
 
 li button {
@@ -182,7 +208,7 @@ li button {
   font-weight: 700;
 }
 
-.dropdown-option:last-child {
+/* .dropdown-option:last-child {
   border-radius: 0 0 5px 5px;
 }
 
@@ -212,7 +238,7 @@ li button {
 
 .dropdown-option:hover {
   background-color: #db8876;
-}
+} */
 /* --------------- */
 
 .photograph-header {
@@ -252,3 +278,66 @@ li button {
 }
 
 /* ----------------------------- */
+
+/* Center the select element */
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+/* Base styles for the dropdown */
+.choices__inner {
+  background-color: #901c1c !important;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px !important;
+  padding: 10px !important;
+  padding-inline-end: 0 !important;
+  border: none !;
+}
+
+/* Border-radius when dropdown is opened */
+.choices__inner.is-open {
+  border-radius: 5px 5px 0 0 !important;
+}
+
+/* Dropdown menu styles */
+.choices__list--dropdown {
+  background-color: #901c1c;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  margin-top: -1px; /* Prevents double border when open */
+}
+
+.choices {
+  width: 250px !important;
+  border-radius: 5px !important;
+}
+
+.is-open,
+.is-focused {
+  max-width: 250px !important;
+}
+
+/* Option styles */
+.choices__item {
+  /* padding: 10px; */
+  color: white;
+  background-color: #901c1c !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Hover effect for options */
+.choices__item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Style for the last option (rounded bottom corners) */
+.choices__list--dropdown .choices__item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.choices__item--choice:hover {
+  background-color: #db8876 !important;
+}
