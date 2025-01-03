@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectedButton = selectedItem.querySelector('button.selected-filter')
   const options = dropdown.querySelectorAll('.dropdown-option')
   const chevronIcon = selectedItem.querySelector('i')
+  let focusedIndex = 0
 
   let mediaToDisplay
 
@@ -99,6 +100,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   })
+
+  // Keyboard navigation (arrow keys)
+  selectedButton.addEventListener('keydown', (event) => {
+    const optionCount = options.length
+
+    // Prevent page scrolling on ArrowDown/ArrowUp keys when dropdown is open
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault()
+    }
+
+    if (event.key === 'ArrowDown') {
+      // Move focus down
+      focusedIndex = (focusedIndex + 1) % optionCount // Loop back to the top
+
+      updateFocusedOption()
+    } else if (event.key === 'ArrowUp') {
+      // Move focus up
+      focusedIndex = (focusedIndex - 1 + optionCount) % optionCount // Loop to the bottom
+
+      updateFocusedOption()
+    } else if (event.key === 'Enter') {
+      // Select focused option (even if it's the currently selected one)
+      const focusedOption = options[focusedIndex]
+      focusedOption.querySelector('button').click()
+    }
+  })
+
+  // Update the focused option's style and aria-selected
+  const updateFocusedOption = () => {
+    options.forEach((option, index) => {
+      const button = option.querySelector('button')
+      const isFocused = index === focusedIndex
+
+      // Update aria-selected
+      button.setAttribute('aria-selected', isFocused ? 'true' : 'false')
+
+      // Update style (highlight the focused option)
+      option.style.backgroundColor = isFocused ? '#db8876' : ''
+    })
+  }
 
   // Close dropdown if clicked outside
   document.addEventListener('click', (event) => {
