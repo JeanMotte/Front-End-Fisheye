@@ -61,6 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         .querySelector('button:first-child')
         .setAttribute('aria-label', `Order by ${newText}`)
 
+      selectedItem
+        .querySelector('button:first-child')
+        .setAttribute('aria-activedescendant', newText)
+
+      selectedItem.setAttribute('id', newText)
+
       selectedItem.querySelector('span:first-child').textContent = newText
 
       // Hide dropdown and reset styles

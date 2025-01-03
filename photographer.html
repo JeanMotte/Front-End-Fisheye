@@ -37,27 +37,45 @@
       <div class="filter">
         <span class="filter-span" tabindex="7">Trier par</span>
         <ul class="custom-dropdown">
-          <li class="selected-item" data-value="popularite">
+          <li
+            class="selected-item"
+            data-value="popularite"
+            role="option"
+            id="Popularite"
+          >
             <button
               class="selected-filter"
               role="button"
-              aria-haspopup="listbox"
               type="button"
+              aria-haspopup="listbox"
               aria-label="Order by Popularite"
               aria-expanded="false"
               tabindex="8"
+              aria-activedescendant="Popularite"
             >
               <span>Popularité</span>
               <span><i class="fas fa-chevron-down"></i></span>
             </button>
           </li>
           <div class="dropdown-list">
-            <li class="dropdown-option" data-value="date" hidden role="option">
+            <li
+              class="dropdown-option"
+              data-value="date"
+              hidden
+              role="option"
+              id="Date"
+            >
               <button type="button" aria-label="Order by Date" tabindex="8">
                 <span>Date</span>
               </button>
             </li>
-            <li class="dropdown-option" data-value="titre" hidden role="option">
+            <li
+              class="dropdown-option"
+              data-value="titre"
+              hidden
+              role="option"
+              id="Titre"
+            >
               <button type="button" aria-label="Order by Titre" tabindex="8">
                 <span>Titre</span>
               </button>
