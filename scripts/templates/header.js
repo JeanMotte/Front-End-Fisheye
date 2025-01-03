@@ -20,7 +20,7 @@ export default class Header {
         </button>
       </div>
       <div class="photograph-header__portrait" id="tags">
-        <img src="/assets/photographers/${this.photographer.portrait}" alt="Photo de ${this.photographer.name}" class="" tabindex="5" />
+        <img src="/assets/photographers/${this.photographer.portrait}" alt="" tabindex="5" />
       </div>
     `
 

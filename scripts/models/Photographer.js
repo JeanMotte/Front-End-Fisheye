@@ -21,9 +21,9 @@ export default class Photographer {
     // Define the HTML as a string
     const html = `
       <article>
-        <a href="./photographer.html?id=${this.id}" role="link" aria-label="Voir le profil de ${this.name}" tabindex="3">
+        <a href="./photographer.html?id=${this.id}" role="link" aria-label="${this.name}" tabindex="3">
           <div class="img-wrapper">
-            <img src="${picture}" alt="Photo de ${this.name}">
+            <img src="${picture}">
           </div>
           <h2>${this.name}</h2>
         </a>
