@@ -101,8 +101,8 @@
       </div>
       <div class="medias"></div>
       <div class="tjm-tag"></div>
-      <dialog class="modal" tabindex="1">
-        <header>
+      <dialog class="modal" tabindex="1" aria-labelledby="modal-header">
+        <header id="modal-header">
           <h2
             class="title-modal open-modal-button"
             tabindex="0"
@@ -114,7 +114,7 @@
         </header>
         <form>
           <div>
-            <label for="first" tabindex="0">Prénom</label>
+            <label for="first" tabindex="0" id="first-name-label">Prénom</label>
             <input
               class="text-control"
               type="text"
@@ -123,13 +123,14 @@
               minlength="2"
               required
               placeholder="Mary"
+              aria-labelledby="first-name-label"
             />
             <span class="error-message" id="alert-first-name"
               >Veuillez entrer 2 caractères ou plus sans caractère
               spécial.</span
             >
 
-            <label for="last" tabindex="0">Nom</label>
+            <label for="last" tabindex="0" id="last-name-label">Nom</label>
             <input
               class="text-control"
               type="text"
@@ -138,12 +139,13 @@
               minlength="2"
               required
               placeholder="Poppins"
+              aria-labelledby="last-name-label"
             />
             <span class="error-message" id="alert-last-name"
               >Veuillez entrer 2 caractères ou plus sans caractère
               spécial.</span
             >
-            <label for="email" tabindex="0">Email</label>
+            <label for="email" tabindex="0" id="email-label">Email</label>
             <input
               class="text-control"
               type="email"
@@ -151,11 +153,14 @@
               name="email"
               required
               placeholder="mary@gmail.com"
+              aria-labelledby="email-label"
             />
             <span class="error-message" id="alert-email"
               >Veuillez saisir un mail valide.</span
             >
-            <label for="message" tabindex="0">Votre message</label>
+            <label for="message" tabindex="0" id="message-label"
+              >Votre message</label
+            >
             <textarea
               class="text-control text-area"
               type="text"
@@ -164,15 +169,21 @@
               minlength="10"
               required
               placeholder="Je souhaite faire appel à vous pour..."
+              aria-labelledby="message-label"
             ></textarea>
             <span class="error-message" id="alert-message"
               >Le message doit comporter au moins 10 caractères</span
             >
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="Send">Envoyer</button>
         </form>
         <div class="close-modal">
-          <button role="button" onclick="closeModal()" class="button-close">
+          <button
+            role="button"
+            onclick="closeModal()"
+            class="button-close"
+            aria-label="Close contact form"
+          >
             <img src="assets/icons/close.svg" />
           </button>
         </div>

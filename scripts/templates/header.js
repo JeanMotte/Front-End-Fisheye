@@ -8,7 +8,7 @@ export default class Header {
 
     const info = `
       <div class="photograph-header__info">
-        <h1 class="name" tabindex="2">${this.photographer.name}</h1>
+        <h1 class="name" tabindex="2" id="${this.photographer.name}">${this.photographer.name}</h1>
         <div class="location-tagline-target" tabindex="3">
           <p class="location">${this.photographer.city}, ${this.photographer.country}</p>
           <p class="tagline">${this.photographer.tagline}</p>
@@ -32,5 +32,8 @@ export default class Header {
     modalHeader.textContent = `
       ${this.photographer.name}
     `
+
+    const modal = document.querySelector('dialog.modal')
+    modal.setAttribute('aria-label', `Contact me, ${this.photographer.name}`)
   }
 }
