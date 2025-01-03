@@ -65,6 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
         .querySelector('button:first-child')
         .setAttribute('aria-activedescendant', newText)
 
+      option.setAttribute('aria-selected', false)
+
+      selectedItem
+        .querySelector('button:first-child')
+        .setAttribute('aria-selected', true)
+
       selectedItem.setAttribute('id', newText)
 
       selectedItem.querySelector('span:first-child').textContent = newText

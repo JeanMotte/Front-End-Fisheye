@@ -35,7 +35,9 @@
     <main id="main-photographer">
       <div class="photograph-header"></div>
       <div class="filter">
-        <span class="filter-span" tabindex="7">Trier par</span>
+        <span class="filter-span" tabindex="7" role="input-label" id="order-by"
+          >Trier par</span
+        >
         <ul class="custom-dropdown">
           <li
             class="selected-item"
@@ -52,6 +54,8 @@
               aria-expanded="false"
               tabindex="8"
               aria-activedescendant="Popularite"
+              aria-labelledby="order-by"
+              aria-selected="true"
             >
               <span>Popularité</span>
               <span><i class="fas fa-chevron-down"></i></span>
@@ -65,7 +69,13 @@
               role="option"
               id="Date"
             >
-              <button type="button" aria-label="Order by Date" tabindex="8">
+              <button
+                type="button"
+                aria-label="Order by Date"
+                tabindex="8"
+                aria-labelledby="order-by"
+                aria-selected="false"
+              >
                 <span>Date</span>
               </button>
             </li>
@@ -76,7 +86,13 @@
               role="option"
               id="Titre"
             >
-              <button type="button" aria-label="Order by Titre" tabindex="8">
+              <button
+                type="button"
+                aria-label="Order by Titre"
+                tabindex="8"
+                aria-labelledby="order-by"
+                aria-selected="false"
+              >
                 <span>Titre</span>
               </button>
             </li>
