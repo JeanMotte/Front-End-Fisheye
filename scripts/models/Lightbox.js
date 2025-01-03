@@ -94,11 +94,11 @@ export class Lightbox {
       <button class="lightbox__next" aria-label="Next image">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-      <button class="lightbox__close" aria-label="Close lightbox">
+      <button class="lightbox__close" aria-label="Close dialog">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="lightbox__container">
-        <img class="lightbox__image" src="${url}" alt="Image of ${title}" tabindex="2" />
+        <img class="lightbox__image" src="${url}" alt="Image of ${title}" aria-label="${title}" tabindex="2" />
         <figcaption class="lightbox__caption" tabindex="3">${title || 'No title available'}</figcaption>
       </div>
     `
@@ -111,11 +111,11 @@ export class Lightbox {
       <button class="lightbox__next" aria-label="Next image">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-      <button class="lightbox__close" aria-label="Close lightbox">
+      <button class="lightbox__close" aria-label="Close dialog">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="lightbox__container">
-        <video class="lightbox__image" controls alt="video of ${title}" tabindex="2">
+        <video class="lightbox__image" controls alt="video of ${title}" aria-label="${title}" tabindex="2">
           <source src="${url}" type="video/mp4" />
         <figcaption class="lightbox__caption" tabindex="3">${title || 'No title available'}</figcaption>
       </div>
