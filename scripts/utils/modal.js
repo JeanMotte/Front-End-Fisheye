@@ -6,6 +6,8 @@ function displayModal() {
   modal.showModal()
 
   document.body.classList.add('no-scroll')
+
+  modal.focus()
 }
 
 function closeModal() {

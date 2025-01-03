@@ -155,6 +155,8 @@ export class Lightbox {
             )
 
             document.body.classList.add('no-scroll')
+
+            document.querySelector('.lightbox').focus()
           })
         }
       })
