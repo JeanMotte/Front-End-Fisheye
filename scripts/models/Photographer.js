@@ -16,7 +16,7 @@ export default class Photographer {
   }
 
   getUserCardDOM() {
-    const picture = `assets/photographers/${this.portrait}`
+    const picture = `./assets/photographers/${this.portrait}`
 
     // Define the HTML as a string
     const html = `

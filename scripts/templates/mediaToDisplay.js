@@ -6,7 +6,7 @@ export default class MediaToDisplay {
   }
 
   setMediasType(media) {
-    const mediaBasePath = `/assets/images/${this.photographer.name}/`
+    const mediaBasePath = `./assets/images/${this.photographer.name}/`
 
     if (media.image && typeof media.image === 'string')
       return `
@@ -30,7 +30,7 @@ export default class MediaToDisplay {
   }
 
   setGalleryCard(media) {
-    const mediaBasePath = `/assets/images/${this.photographer.name}/`
+    const mediaBasePath = `./assets/images/${this.photographer.name}/`
     const mediaContent = this.setMediasType(media)
 
     return `

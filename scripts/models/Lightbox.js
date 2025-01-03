@@ -47,8 +47,8 @@ export class Lightbox {
 
     const photographerName = this.photographerData.name.replace(/\s+/g, '%20')
     const mediaUrl = currentMedia.image
-      ? `assets/images/${photographerName}/${currentMedia.image}`
-      : `assets/images/${photographerName}/${currentMedia.video}`
+      ? `./assets/images/${photographerName}/${currentMedia.image}`
+      : `./assets/images/${photographerName}/${currentMedia.video}`
 
     if (currentMedia.image) {
       mediaContainer.innerHTML = `
