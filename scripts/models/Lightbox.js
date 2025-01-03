@@ -18,7 +18,11 @@ export class Lightbox {
   addEventListeners() {
     this.element
       .querySelector('.lightbox__close')
-      .addEventListener('click', () => this.close())
+      .addEventListener('click', () => {
+        this.close()
+
+        document.body.classList.remove('no-scroll')
+      })
 
     this.element
       .querySelector('.lightbox__previous')
@@ -31,6 +35,8 @@ export class Lightbox {
     this.element.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         this.close()
+
+        document.body.classList.remove('no-scroll')
       }
     })
   }
@@ -147,6 +153,8 @@ export class Lightbox {
               mediaList,
               photographerData
             )
+
+            document.body.classList.add('no-scroll')
           })
         }
       })
