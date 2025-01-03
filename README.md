@@ -1,6 +1,4 @@
-# Base de code du projet P6 - Parcours Front-end
+# Front-End-Fisheye
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+Lien gh-pages : https://jeanmotte.github.io/Front-End-Fisheye/index.html
 
