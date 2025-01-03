@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update the selected item
       selectedItem.setAttribute('data-value', newValue)
 
+      // Set the aria label to button according to selected filter
+      selectedItem
+        .querySelector('button:first-child')
+        .setAttribute('aria-label', `Order by ${newText}`)
+
       selectedItem.querySelector('span:first-child').textContent = newText
 
       // Hide dropdown and reset styles
