@@ -95,13 +95,13 @@ export class Lightbox {
     if (url.endsWith('.jpg')) {
       dom.innerHTML = `
       <button class="lightbox__previous" aria-label="Previous image">
-        <i class="fa-solid fa-chevron-left"></i>
+        <span class="fa-solid fa-chevron-left"></span>
       </button>
       <button class="lightbox__next" aria-label="Next image">
-        <i class="fa-solid fa-chevron-right"></i>
+        <span class="fa-solid fa-chevron-right"></span>
       </button>
       <button class="lightbox__close" aria-label="Close dialog">
-        <i class="fa-solid fa-xmark"></i>
+        <span class="fa-solid fa-xmark"></span>
       </button>
       <div class="lightbox__container">
         <img class="lightbox__image" src="${url}" alt="Image of ${title}" aria-label="${title}" tabindex="2" />
@@ -112,13 +112,13 @@ export class Lightbox {
       dom.innerHTML = `
       
       <button class="lightbox__previous" aria-label="Previous image">
-        <i class="fa-solid fa-chevron-left"></i>
+        <span class="fa-solid fa-chevron-left"></span>
       </button>
       <button class="lightbox__next" aria-label="Next image">
-        <i class="fa-solid fa-chevron-right"></i>
+        <span class="fa-solid fa-chevron-right"></span>
       </button>
       <button class="lightbox__close" aria-label="Close dialog">
-        <i class="fa-solid fa-xmark"></i>
+        <span class="fa-solid fa-xmark"></span>
       </button>
       <div class="lightbox__container">
         <video class="lightbox__video" controls alt="video of ${title}" aria-label="${title}" tabindex="2">

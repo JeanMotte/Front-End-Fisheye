@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectedItem = dropdown.querySelector('.selected-item')
   const selectedButton = selectedItem.querySelector('button.selected-filter')
   const options = dropdown.querySelectorAll('.dropdown-option')
-  const chevronIcon = selectedItem.querySelector('i')
+  const chevronIcon = selectedItem.querySelector('.chevron-filter')
   let focusedIndex = 0
 
   let mediaToDisplay
