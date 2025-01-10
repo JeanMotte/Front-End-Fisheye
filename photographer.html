@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fr">
   <head>
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
     <link href="./css/modal.css" rel="stylesheet" type="text/css" />
@@ -18,12 +18,7 @@
   </head>
   <body>
     <header>
-      <a
-        href="./index.html"
-        role="link"
-        aria-label="Home Page Button"
-        tabindex="1"
-      >
+      <a href="./index.html" aria-label="Home Page Button" tabindex="1">
         <img
           src="./assets/images/logo.png"
           class="logo"
@@ -35,10 +30,8 @@
     <main id="main-photographer">
       <div class="photograph-header"></div>
       <div class="filter">
-        <span class="filter-span" tabindex="7" role="input-label" id="order-by"
-          >Trier par</span
-        >
-        <ul class="custom-dropdown">
+        <span class="filter-span" tabindex="7" id="order-by">Trier par</span>
+        <ul class="custom-dropdown" role="listbox">
           <li
             class="selected-item"
             data-value="popularite"
@@ -47,7 +40,6 @@
           >
             <button
               class="selected-filter"
-              role="button"
               type="button"
               aria-haspopup="listbox"
               aria-label="Order by Popularite"
@@ -58,7 +50,9 @@
               aria-selected="true"
             >
               <span>Popularité</span>
-              <span><i class="fas fa-chevron-down"></i></span>
+              <span
+                ><i class="fas fa-chevron-down" aria-hidden="true"></i
+              ></span>
             </button>
           </li>
           <div class="dropdown-list">
@@ -163,7 +157,6 @@
             >
             <textarea
               class="text-control text-area"
-              type="text"
               id="message"
               name="message"
               minlength="10"
@@ -179,12 +172,11 @@
         </form>
         <div class="close-modal">
           <button
-            role="button"
             onclick="closeModal()"
             class="button-close"
             aria-label="Close contact form"
           >
-            <img src="./assets/icons/close.svg" />
+            <img src="./assets/icons/close.svg" alt="Close cross" />
           </button>
         </div>
       </dialog>
