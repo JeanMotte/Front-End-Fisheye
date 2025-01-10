@@ -58,14 +58,7 @@ export default class MediaToDisplay {
     `
   }
 
-  setFullGalery() {
-    return this.medias
-      .filter((media) => media.image || media.video)
-      .map((media) => this.setGalleryCard(media))
-      .join('')
-  }
-
-  setFullGalery2(mediaList) {
+  setFullGalery(mediaList = this.medias) {
     return mediaList
       .filter((media) => media.image || media.video)
       .map((media) => this.setGalleryCard(media))
@@ -95,28 +88,14 @@ export default class MediaToDisplay {
   }
 
   insertGallery(mediaList) {
-    if (mediaList) {
-      const profilePageContent = document.querySelector('.medias')
-      const content = `
+    const profilePageContent = document.querySelector('.medias')
+    const content = `
       <section class="gallery">
-        ${this.setFullGalery2(mediaList)}
+        ${this.setFullGalery(mediaList)}
       </section>
     `
+    profilePageContent.innerHTML = content
 
-      profilePageContent.innerHTML = content
-
-      return content
-    } else {
-      const profilePageContent = document.querySelector('.medias')
-      const content = `
-      <section class="gallery">
-        ${this.setFullGalery()}
-      </section>
-    `
-
-      profilePageContent.innerHTML = content
-
-      return content
-    }
+    return content
   }
 }
