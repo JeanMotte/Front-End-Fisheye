@@ -32,13 +32,24 @@ export class Lightbox {
       .querySelector('.lightbox__next')
       .addEventListener('click', () => this.showNext())
 
-    this.element.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        this.close()
+    document.addEventListener('keydown', this.handleKeydown)
+  }
 
-        document.body.classList.remove('no-scroll')
-      }
-    })
+  handleKeydown = (event) => {
+    if (event.key === 'Escape') {
+      this.close();
+      document.body.classList.remove('no-scroll');
+    } else if (event.key === 'ArrowLeft') {
+      this.showPrevious();
+    } else if (event.key === 'ArrowRight') {
+      this.showNext();
+    }
+  };
+
+  close() {
+    document.removeEventListener('keydown', this.handleKeydown);
+    this.element.close();
+    this.element.remove();
   }
 
   updateMedia() {
